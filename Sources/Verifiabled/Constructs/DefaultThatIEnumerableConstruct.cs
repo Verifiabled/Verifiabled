@@ -1,6 +1,6 @@
 ﻿namespace Verifiabled.Constructs
 {
-    internal class DefaultThatIEnumerableConstruct<TActual> : IThatIEnumerableConstruct<TActual>
+    public sealed class DefaultThatIEnumerableConstruct<TActual> : IThatIEnumerableConstruct<TActual>
     {
         public IEnumerable<TActual> Actual { get; }
 
