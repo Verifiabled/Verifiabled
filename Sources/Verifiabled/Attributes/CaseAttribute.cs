@@ -1,8 +1,6 @@
 ﻿namespace Verifiabled
 {
-    [AttributeUsage(AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
     public class CaseAttribute : Attribute
-    {
-
-    }
+    { }
 }
