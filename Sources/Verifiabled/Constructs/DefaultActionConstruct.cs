@@ -1,6 +1,6 @@
 ﻿namespace Verifiabled.Constructs
 {
-    public sealed class DefaultActionConstruct : IThatActionConstruct
+    internal sealed class DefaultActionConstruct : IThatActionConstruct
     {
         public Action Act { get; }
 

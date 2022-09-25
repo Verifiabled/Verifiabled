@@ -1,6 +1,6 @@
 ﻿namespace Verifiabled.Constructs
 {
-    public sealed class DefaultThatAsyncConstruct<TActual> : IThatAsyncConstruct<TActual>
+    internal sealed class DefaultThatAsyncConstruct<TActual> : IThatAsyncConstruct<TActual>
     {
         public Task<TActual> Actual { get; }
 
