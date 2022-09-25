@@ -2,11 +2,10 @@
 {
     public static class GlobalConstraintListenerManager
     {
-        private static List<IConstraintListener> Listeners { get; } = new();
+        public static IConstraintListener Listener { get; private set; } = Create();
+        public static void Broadcast(IContraint contraint) => Listener.Broadcast(contraint);
+        public static void Prepare() => Listener = Create();
 
-        public static void Add(IConstraintListener constraintListener) => Listeners.Add(constraintListener);
-        public static IEnumerable<IConstraintListener> GetAllConstraintListeners() => Listeners;
-        public static void Broadcast(IContraint contraint) => Listeners.ForEach(listener => listener.Broadcast(contraint));
-        public static void Clear() => Listeners.Clear();
+        private static IConstraintListener Create() => new DefaultConstraintListener();
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Verifiabled.Constraints
 {
-    public sealed class DefaultConstraintListener : IConstraintListener
+    internal sealed class DefaultConstraintListener : IConstraintListener
     {
         private List<IContraint> Constraints { get; } = new();
 
