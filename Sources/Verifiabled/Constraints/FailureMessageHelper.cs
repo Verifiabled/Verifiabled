@@ -12,7 +12,7 @@ namespace Verifiabled.Constraints
             if (actual == null)
                 actual = "null";
 
-            var builder = new StringBuilder("Assertion failed.");
+            var builder = new StringBuilder("Assertion failed.\n");
             builder.AppendLine($"Expected: {expected}");
             builder.AppendLine($"Actual: {actual}");
             return builder.ToString();
