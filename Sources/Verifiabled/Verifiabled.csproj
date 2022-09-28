@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <IsPackable>true</IsPackable>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <PackageId>$(AssemblyName)</PackageId>
     <Authors>Verifiabled</Authors>
     <PackageProjectUrl></PackageProjectUrl>
@@ -14,4 +14,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
+  <ItemGroup>
+    <InternalsVisibleTo Include="$(AssemblyName).UnitTests"/>
+  </ItemGroup>
+  
 </Project>
