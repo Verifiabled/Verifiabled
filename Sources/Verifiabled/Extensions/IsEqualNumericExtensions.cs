@@ -1,4 +1,5 @@
-﻿using Verifiabled.Constraints;
+﻿using System.Numerics;
+using Verifiabled.Constraints;
 using Verifiabled.Constraints.NumericConstraints;
 using Verifiabled.Constructs;
 
@@ -6,23 +7,23 @@ namespace Verifiabled
 {
     public static class IsEqualNumericExtensions
     {
-        public static IsEqualByteConstraint IsEqual(this IThatConstruct<byte> thatConstruct, byte expected)
+        public static IsEqualNumericConstraint<T> IsEqualNumeric<T>(this IThatConstruct<T> thatConstruct, T expected) where T : INumber<T>
         {
-            var constraint = new IsEqualByteConstraint(expected, thatConstruct.Actual);
+            var constraint = new IsEqualNumericConstraint<T>(expected, thatConstruct.Actual);
             GlobalConstraintListenerManager.Broadcast(constraint);
             return constraint;
         }
 
-        public static IsEqualByteConstraint WithinError(this IsEqualByteConstraint constraint, byte error)
+        public static IsEqualNumericConstraint<T> WithinError<T>(this IsEqualNumericConstraint<T> constraint, T error) where T : INumber<T>
         {
             constraint.Error = error;
             constraint.UpdateFulfillment();
             return constraint;
         }
 
-        public static IsEqualByteConstraint WithinTolerance(this IsEqualByteConstraint constraint, decimal tolerance)
+        public static IsEqualNumericConstraint<T> WithinTolerance<T>(this IsEqualNumericConstraint<T> constraint, decimal tolerance) where T : INumber<T>, IConvertible
         {
-            constraint.Error = (byte)(constraint.Expected * tolerance);
+            constraint.Error = INumber<T>.CreateTruncating(decimal.CreateTruncating(constraint.Expected) * decimal.Abs(tolerance));
             constraint.UpdateFulfillment();
             return constraint;
         }
