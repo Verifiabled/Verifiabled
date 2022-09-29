@@ -1,6 +1,6 @@
 ﻿namespace Verifiabled.Constraints
 {
-    public abstract class ConstraintAbstract<T> : IContraint
+    public abstract class ConstraintAbstract<T> : IConstraint
     {
         public bool IsFulfilled { get; protected set; }
 

@@ -1,6 +1,6 @@
 ﻿namespace Verifiabled.Constraints
 {
-    internal sealed class ThrowsConstraint<TException> : IContraint where TException : Exception
+    internal sealed class ThrowsConstraint<TException> : IConstraint where TException : Exception
     {
         public bool IsFulfilled { get; }
 

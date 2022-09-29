@@ -1,6 +1,6 @@
 ﻿namespace Verifiabled.Constraints
 {
-    public interface IContraint
+    public interface IConstraint
     {
         bool IsFulfilled { get; }
         string FailureMessage { get; }
