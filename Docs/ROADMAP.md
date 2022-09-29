@@ -6,7 +6,7 @@ _to be written_
 
 ## Milestone - Filling constraints
 
-- [ ] Equals constraint and extensions
+- [x] ~~Equals constraint and extensions~~
 - [ ] `IEqualityComparer` support
 - [ ] Intelligent runtime type to human readable type conversion
 - [ ] Precise and descriptive error messages
