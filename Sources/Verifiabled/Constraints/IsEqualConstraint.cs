@@ -8,7 +8,7 @@
 
         public IsEqualConstraint(T expected, T actual)
         {
-            FailureMessageHelper.FormMessageFromExpectedAndActual(expected.ToString(), actual.ToString());
+            FailureMessageHelper.FromExpectedAndActual(expected, actual);
             IsFulfilled = EqualityCheck(expected, actual);
         }
 

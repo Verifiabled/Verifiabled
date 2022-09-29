@@ -16,7 +16,7 @@
 
             catch (Exception exception)
             {
-                FailureMessage = FailureMessageHelper.FormMessageFromExpectedAndActual(typeof(TException).Name, exception.GetType().Name);
+                FailureMessage = FailureMessageHelper.FromExpectedAndActual(typeof(TException).Name, exception.GetType().Name);
                 IsFulfilled = exception is TException;
             }
         }

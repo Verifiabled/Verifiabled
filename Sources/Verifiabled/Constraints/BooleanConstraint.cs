@@ -8,7 +8,7 @@
 
         public BooleanConstraint(bool expected, bool actual)
         {
-            FailureMessage = FailureMessageHelper.FormMessageFromExpectedAndActual(expected.ToString(), actual.ToString());
+            FailureMessage = FailureMessageHelper.FromExpectedAndActual(expected, actual);
             IsFulfilled = expected == actual;
         }
     }

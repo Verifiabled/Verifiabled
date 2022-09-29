@@ -8,7 +8,7 @@
 
         public IsDefaultConstraint(TActual actual)
         {
-            FailureMessage = FailureMessageHelper.FormMessageFromExpectedAndActual(default(TActual)?.ToString(), actual?.ToString());
+            FailureMessage = FailureMessageHelper.FromExpectedAndActual(default(TActual), actual);
             IsFulfilled = actual == null || actual.Equals(default(TActual));
         }
     }
