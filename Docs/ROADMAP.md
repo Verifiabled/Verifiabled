@@ -7,7 +7,7 @@ _to be written_
 ## Milestone - Filling constraints
 
 - [x] ~~Equals constraint and extensions~~
-- [ ] Add tolerance and precision to numeric comparisons
+- [o] Add tolerance and precision to numeric comparisons
 - [ ] `IEqualityComparer` support
 - [ ] Intelligent runtime type to human readable type conversion
 - [ ] Precise and descriptive error messages

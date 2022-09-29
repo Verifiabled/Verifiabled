@@ -1,15 +1,11 @@
 ﻿namespace Verifiabled.Constraints
 {
-    internal sealed class BooleanConstraint : IContraint
+    internal sealed class BooleanConstraint : ConstraintAbstract<bool>
     {
-        public bool IsFulfilled { get; }
+        public BooleanConstraint(bool expected, bool actual) : base(expected, actual)
+        { }
 
-        public string FailureMessage { get; }
-
-        public BooleanConstraint(bool expected, bool actual)
-        {
-            FailureMessage = FailureMessageHelper.FromExpectedAndActual(expected, actual);
-            IsFulfilled = expected == actual;
-        }
+        internal override void UpdateFulfillment()
+            => IsFulfilled = Expected == Actual;
     }
 }

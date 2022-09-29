@@ -1,15 +1,11 @@
 ﻿namespace Verifiabled.Constraints
 {
-    internal sealed class IsDefaultConstraint<TActual> : IContraint
+    internal sealed class IsDefaultConstraint<TActual> : ConstraintAbstract<TActual>
     {
-        public bool IsFulfilled { get; }
+        public IsDefaultConstraint(TActual actual) : base(default(TActual), actual)
+        { }
 
-        public string FailureMessage { get; }
-
-        public IsDefaultConstraint(TActual actual)
-        {
-            FailureMessage = FailureMessageHelper.FromExpectedAndActual(default(TActual), actual);
-            IsFulfilled = actual == null || actual.Equals(default(TActual));
-        }
+        internal override void UpdateFulfillment()
+             => IsFulfilled = Actual == null || Actual.Equals(Expected);
     }
 }
