@@ -23,7 +23,7 @@ namespace Verifiabled
 
         public static IsEqualNumericConstraint<T> WithinTolerance<T>(this IsEqualNumericConstraint<T> constraint, decimal tolerance) where T : INumber<T>
         {
-            constraint.Error = INumber<T>.CreateTruncating(INumber<decimal>.CreateTruncating(constraint.Expected) * Math.Abs(tolerance));
+            constraint.Error = T.CreateTruncating(decimal.CreateTruncating(constraint.Expected) * Math.Abs(tolerance));
             constraint.UpdateFulfillment();
             return constraint;
         }
