@@ -21,9 +21,9 @@ namespace Verifiabled
             return constraint;
         }
 
-        public static IsEqualNumericConstraint<T> WithinTolerance<T>(this IsEqualNumericConstraint<T> constraint, decimal tolerance) where T : INumber<T>, IConvertible
+        public static IsEqualNumericConstraint<T> WithinTolerance<T>(this IsEqualNumericConstraint<T> constraint, decimal tolerance) where T : INumber<T>
         {
-            constraint.Error = INumber<T>.CreateTruncating(decimal.CreateTruncating(constraint.Expected) * decimal.Abs(tolerance));
+            constraint.Error = INumber<T>.CreateTruncating(INumber<decimal>.CreateTruncating(constraint.Expected) * Math.Abs(tolerance));
             constraint.UpdateFulfillment();
             return constraint;
         }
