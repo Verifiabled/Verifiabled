@@ -11,7 +11,7 @@
             object? actual = null;
 
             // assert
-            Assert.That(actual).IsNull();
+            Assert.IsNull(actual);
         }
 
         [Case]
@@ -23,7 +23,7 @@
             string actual = null!;
 
             // assert
-            Assert.That(actual).IsNull();
+            Assert.IsNull(actual);
         }
     }
 }

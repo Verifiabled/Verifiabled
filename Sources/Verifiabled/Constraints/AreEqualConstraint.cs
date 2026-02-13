@@ -1,8 +1,8 @@
 ﻿namespace Verifiabled.Constraints
 {
-    internal sealed class IsEqualConstraint<T> : ConstraintAbstract<T>
+    internal sealed class AreEqualConstraint<T> : ConstraintAbstract<T>
     {
-        public IsEqualConstraint(T expected, T actual) : base(expected, actual)
+        public AreEqualConstraint(T expected, T actual) : base(expected, actual)
         { }
 
         internal override void UpdateFulfillment()

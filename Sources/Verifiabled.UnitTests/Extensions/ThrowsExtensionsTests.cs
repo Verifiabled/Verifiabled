@@ -11,7 +11,7 @@
             static void Act() => throw new NotImplementedException();
 
             // assert
-            Assert.That(Act).Throws<NotImplementedException>();
+            Assert.Throws<NotImplementedException>(Act);
         }
     }
 }

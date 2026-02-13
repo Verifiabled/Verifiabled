@@ -11,7 +11,7 @@
             double actual = 0d;
 
             // assert
-            Assert.That(actual).IsDefault();
+            Assert.IsDefault(actual);
         }
     }
 }

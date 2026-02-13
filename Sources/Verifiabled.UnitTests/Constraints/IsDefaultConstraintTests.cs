@@ -14,7 +14,7 @@ namespace Verifiabled.UnitTests.Constraints
             var constraint = new IsDefaultConstraint<double>(actual);
 
             // assert
-            Assert.That(constraint.IsFulfilled).IsTrue();
+            Assert.IsTrue(constraint.IsFulfilled);
         }
 
         [Case]
@@ -27,7 +27,7 @@ namespace Verifiabled.UnitTests.Constraints
             var constraint = new IsDefaultConstraint<double>(actual);
 
             // assert
-            Assert.That(constraint.IsFulfilled).IsFalse();
+            Assert.IsFalse(constraint.IsFulfilled);
         }
     }
 }

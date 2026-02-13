@@ -2,7 +2,7 @@
 
 namespace Verifiabled.UnitTests.Constraints
 {
-    public sealed class IsEqualConstraintTests
+    public sealed class AreEqualConstraintTests
     {
         [Case]
         public void ShouldBeFulfilled()
@@ -12,10 +12,10 @@ namespace Verifiabled.UnitTests.Constraints
             var actual = 0d;
 
             // act
-            var constraint = new IsEqualConstraint<double>(expected, actual);
+            var constraint = new AreEqualConstraint<double>(expected, actual);
 
             // assert
-            Assert.That(constraint.IsFulfilled).IsTrue();
+            Assert.IsTrue(constraint.IsFulfilled);
         }
 
         [Case]
@@ -26,10 +26,10 @@ namespace Verifiabled.UnitTests.Constraints
             var actual = default(string);
 
             // act
-            var constraint = new IsEqualConstraint<string?>(expected, actual);
+            var constraint = new AreEqualConstraint<string?>(expected, actual);
 
             // assert
-            Assert.That(constraint.IsFulfilled).IsTrue();
+            Assert.IsTrue(constraint.IsFulfilled);
         }
 
         [Case]
@@ -40,10 +40,10 @@ namespace Verifiabled.UnitTests.Constraints
             var actual = string.Empty;
 
             // act
-            var constraint = new IsEqualConstraint<string?>(expected, actual);
+            var constraint = new AreEqualConstraint<string?>(expected, actual);
 
             // assert
-            Assert.That(constraint.IsFulfilled).IsFalse();
+            Assert.IsFalse(constraint.IsFulfilled);
         }
     }
 }

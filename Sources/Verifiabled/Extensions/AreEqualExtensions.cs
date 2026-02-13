@@ -2,13 +2,13 @@
 
 namespace Verifiabled
 {
-    public static class IsDefaultExtensions
+    public static class AreEqualExtensions
     {
         extension(Assert)
         {
-            public static void IsDefault<TActual>(TActual actual)
+            public static void AreEqual<T>(T expected, T actual)
             {
-                var constraint = new IsDefaultConstraint<TActual>(actual);
+                var constraint = new AreEqualConstraint<T>(expected, actual);
                 GlobalConstraintListenerManager.Broadcast(constraint);
             }
         }

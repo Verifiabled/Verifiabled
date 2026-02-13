@@ -1,6 +1,6 @@
 ﻿namespace Verifiabled.UnitTests.Extensions
 {
-    public sealed class IsEqualExtensionsTests
+    public sealed class AreEqualExtensionsTests
     {
         [Case]
         public void ShouldPassWithDouble()
@@ -12,7 +12,7 @@
             var actual = 9d;
 
             // assert
-            Assert.That(actual).IsEqual(expected);
+            Assert.AreEqual(expected, actual);
         }
     }
 }

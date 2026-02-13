@@ -11,7 +11,7 @@
             var actual = true;
 
             // assert
-            Assert.That(actual).IsTrue();
+            Assert.IsTrue(actual);
         }
 
         [Case]
@@ -23,7 +23,7 @@
             var actual = false;
 
             // assert
-            Assert.That(actual).IsFalse();
+            Assert.IsFalse(actual);
         }
     }
 }
