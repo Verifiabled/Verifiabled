@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace Verifiabled.Constraints
+﻿namespace Verifiabled.Constraints
 {
     public static class FailureMessageHelper
     {

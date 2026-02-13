@@ -4,7 +4,7 @@ This project contains all core assertion logic. There is no test execution conte
 
 ## Requirements
 
-- .NET7
+- .NET10
 
 ## Installation
 
@@ -33,31 +33,6 @@ This project contains all core assertion logic. There is no test execution conte
     ```csharp
     public sealed class ExampleTestSet
     {
-        // ... test cases go here
-    }
-    ```
-
-2. Create new public method with Case attribute in this class
-
-    ```csharp
-    [Case]
-    public void ExampleTestCase()
-    {
-        // ... test case logic goes here
-    }
-    ```
-
-3. Write your assertions
-
-    ```csharp
-    Assert.That(true).IsTrue();
-    ```
-
-4. All done!
-
-    ```csharp
-    public sealed class ExampleTestSet
-    {
         [Case]
         public void ExampleTestCase()
         {
@@ -66,7 +41,7 @@ This project contains all core assertion logic. There is no test execution conte
     }
     ```
 
-5. You can now execute your tests
+2. Execute your tests
 
     - using Visual Studio
     - using dotnet command `dotnet test -v YoursTestProject.dll`
