@@ -36,7 +36,7 @@ This project contains all core assertion logic. There is no test execution conte
         [Case]
         public void ExampleTestCase()
         {
-            Assert.That(true).IsTrue();
+            Assert.IsTrue(true);
         }
     }
     ```
