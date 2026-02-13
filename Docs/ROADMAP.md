@@ -19,8 +19,8 @@ _to be written_
 
 ## Milestone - Source pointing
 
-- [ ] Reading .pdb symbol files
-- [ ] Pointing test case to specific method and line
+- [x] ~~Reading .pdb symbol files~~
+- [x] ~~Pointing test case to specific method and line~~
 
 ## Milestone - Data driven
 
