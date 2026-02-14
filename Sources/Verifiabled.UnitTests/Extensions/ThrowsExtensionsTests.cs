@@ -2,7 +2,7 @@
 {
     public sealed class ThrowsExtensionsTests
     {
-        //[Case]
+        [Case]
         public void ShouldPass()
         {
             // arrange

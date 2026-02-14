@@ -2,7 +2,7 @@
 {
     public sealed class AreEqualExtensionsTests
     {
-        //[Case]
+        [Case]
         public void ShouldPassWithDouble()
         {
             // arrange

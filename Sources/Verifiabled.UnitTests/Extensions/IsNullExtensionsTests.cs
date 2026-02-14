@@ -2,7 +2,7 @@
 {
     public sealed class IsNullExtensionsTests
     {
-        //[Case]
+        [Case]
         public void ShouldPassWithObject()
         {
             // arrange
@@ -14,7 +14,7 @@
             Assert.IsNull(actual);
         }
 
-        //[Case]
+        [Case]
         public void ShouldPassWithString()
         {
             // arrange

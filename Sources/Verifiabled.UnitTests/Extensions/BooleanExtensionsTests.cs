@@ -2,7 +2,7 @@
 {
     public sealed class BooleanExtensionsTests
     {
-        //[Case]
+        [Case]
         public void ShouldPassWithTrue()
         {
             // arrange
@@ -14,7 +14,7 @@
             Assert.IsTrue(actual);
         }
 
-        //[Case]
+        [Case]
         public void ShouldPassWithFalse()
         {
             // arrange
