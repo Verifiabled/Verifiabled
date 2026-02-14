@@ -7,7 +7,7 @@
 
         internal static void ThrowIfUnfulfilled(bool condition, string? message)
         {
-            if (condition)
+            if (!condition)
                 throw new AssertException(message ?? "Assertion failed");
         }
     }
