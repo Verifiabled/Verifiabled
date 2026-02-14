@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Verifiabled.Constraints;
+using Verifiabled.Exceptions;
 
 namespace Verifiabled
 {
@@ -9,11 +10,11 @@ namespace Verifiabled
         {
             [StackTraceHidden]
             public static void IsTrue(bool actual)
-                => GlobalConstraintListenerManager.Add(Constraint.Create(actual == true, FailureMessageHelper.FromExpectedAndActual(true, actual)));
+                => AssertException.ThrowIfUnfulfilled(actual == true, FailureMessageHelper.FromExpectedAndActual(true, actual));
 
             [StackTraceHidden]
             public static void IsFalse(bool actual)
-                => GlobalConstraintListenerManager.Add(Constraint.Create(actual == false, FailureMessageHelper.FromExpectedAndActual(false, actual)));
+                => AssertException.ThrowIfUnfulfilled(actual == false, FailureMessageHelper.FromExpectedAndActual(false, actual));
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-using Verifiabled.Constraints;
+using Verifiabled.Exceptions;
 
 namespace Verifiabled
 {
@@ -9,7 +9,20 @@ namespace Verifiabled
         {
             [StackTraceHidden]
             public static void Throws<TException>(Action act) where TException : Exception
-                => GlobalConstraintListenerManager.Add(ThrowsConstraint.Create<TException>(act));
+            {
+                try
+                {
+                    act();
+                    throw new AssertException($"No exception thrown.\nExpected: {typeof(TException).Name}");
+                }
+                catch (Exception ex)
+                {
+                    if (ex is TException)
+                        return;
+
+                    throw new AssertException($"Unexpected exception thrown.\nExpected: {typeof(TException).Name}\nActual: {ex.GetType().Name}");
+                }
+            }
         }
     }
 }

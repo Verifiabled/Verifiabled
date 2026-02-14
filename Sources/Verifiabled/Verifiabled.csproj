@@ -25,9 +25,5 @@
     <InternalsVisibleTo Include="$(AssemblyName).UnitTests" />
     <InternalsVisibleTo Include="$(AssemblyName).TestAdapter" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Constructs\" />
-  </ItemGroup>
   
 </Project>

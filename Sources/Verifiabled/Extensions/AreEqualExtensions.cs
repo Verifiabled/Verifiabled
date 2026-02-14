@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Verifiabled.Constraints;
+using Verifiabled.Exceptions;
 
 namespace Verifiabled
 {
@@ -9,7 +10,7 @@ namespace Verifiabled
         {
             [StackTraceHidden]
             public static void AreEqual<T>(T expected, T actual)
-                => GlobalConstraintListenerManager.Add(Constraint.Create(expected == null ? actual == null : expected.Equals(actual), FailureMessageHelper.FromExpectedAndActual(expected, actual)));
+                => AssertException.ThrowIfUnfulfilled(expected == null ? actual == null : expected.Equals(actual), FailureMessageHelper.FromExpectedAndActual(expected, actual));
         }
     }
 }

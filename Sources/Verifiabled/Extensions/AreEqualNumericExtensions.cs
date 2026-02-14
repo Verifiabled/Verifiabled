@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Numerics;
 using Verifiabled.Constraints;
+using Verifiabled.Exceptions;
 
 namespace Verifiabled
 {
@@ -13,7 +14,7 @@ namespace Verifiabled
             {
                 var absMeasuredError = T.Abs(expected > actual ? expected - actual : actual - expected);
                 var isFulfilled = absMeasuredError <= T.Abs(error);
-                GlobalConstraintListenerManager.Add(Constraint.Create(isFulfilled, FailureMessageHelper.FromExpectedAndActual(expected, actual)));
+                AssertException.ThrowIfUnfulfilled(isFulfilled, FailureMessageHelper.FromExpectedAndActual(expected, actual));
             }
         }
     }

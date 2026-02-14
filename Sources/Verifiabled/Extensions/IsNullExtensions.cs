@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Verifiabled.Constraints;
+using Verifiabled.Exceptions;
 
 namespace Verifiabled
 {
@@ -9,11 +10,11 @@ namespace Verifiabled
         {
             [StackTraceHidden]
             public static void IsNull<TActual>(TActual? actual) where TActual : class
-                => GlobalConstraintListenerManager.Add(Constraint.Create(actual == null, FailureMessageHelper.FromExpectedAndActual(null, actual)));
+                => AssertException.ThrowIfUnfulfilled(actual == null, FailureMessageHelper.FromExpectedAndActual(null, actual));
 
             [StackTraceHidden]
             public static void IsNull(string? actual)
-                => GlobalConstraintListenerManager.Add(Constraint.Create(actual == null, FailureMessageHelper.FromExpectedAndActual(null, actual)));
+                => AssertException.ThrowIfUnfulfilled(actual == null, FailureMessageHelper.FromExpectedAndActual(null, actual));
         }
     }
 }
