@@ -10,7 +10,7 @@ namespace Verifiabled
         {
             [StackTraceHidden]
             public static void IsDefault<TActual>(TActual actual)
-                => AssertException.ThrowIfUnfulfilled(actual?.Equals(default) ?? true, FailureMessageHelper.FromExpectedAndActual(default(TActual), actual));
+                => AssertException.ThrowIfUnfulfilled(actual?.Equals(default(TActual)) ?? true, FailureMessageHelper.FromExpectedAndActual(default(TActual), actual));
         }
     }
 }
