@@ -1,4 +1,5 @@
-﻿using Verifiabled.Constraints;
+﻿using System.Diagnostics;
+using Verifiabled.Constraints;
 
 namespace Verifiabled
 {
@@ -6,6 +7,7 @@ namespace Verifiabled
     {
         extension(Assert)
         {
+            [StackTraceHidden]
             public static void IsDefault<TActual>(TActual actual)
                 => GlobalConstraintListenerManager.Add(Constraint.Create(actual?.Equals(default) ?? true, FailureMessageHelper.FromExpectedAndActual(default(TActual), actual)));
         }

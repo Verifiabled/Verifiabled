@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System.Diagnostics;
+using System.Numerics;
 using Verifiabled.Constraints;
 
 namespace Verifiabled
@@ -7,6 +8,7 @@ namespace Verifiabled
     {
         extension(Assert)
         {
+            [StackTraceHidden]
             public static void AreEqual<T>(T expected, T actual, T error) where T : INumber<T>
             {
                 var absMeasuredError = T.Abs(expected > actual ? expected - actual : actual - expected);

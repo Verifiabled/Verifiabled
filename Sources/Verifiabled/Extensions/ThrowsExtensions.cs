@@ -1,4 +1,5 @@
-﻿using Verifiabled.Constraints;
+﻿using System.Diagnostics;
+using Verifiabled.Constraints;
 
 namespace Verifiabled
 {
@@ -6,6 +7,7 @@ namespace Verifiabled
     {
         extension(Assert)
         {
+            [StackTraceHidden]
             public static void Throws<TException>(Action act) where TException : Exception
                 => GlobalConstraintListenerManager.Add(ThrowsConstraint.Create<TException>(act));
         }
