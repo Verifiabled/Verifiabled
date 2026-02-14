@@ -1,24 +1,18 @@
 ﻿namespace Verifiabled.Constraints
 {
-    internal sealed class ThrowsConstraint<TException> : IConstraint where TException : Exception
+    internal static class ThrowsConstraint
     {
-        public bool IsFulfilled { get; }
-
-        public string? FailureMessage { get; }
-
-        public ThrowsConstraint(Action act)
+        internal static Constraint Create<TException>(Action act)
         {
             try
             {
                 act();
+                return Constraint.Fulfilled;
             }
 
             catch (Exception exception)
             {
-                IsFulfilled = exception is TException;
-
-                if (IsFulfilled)
-                    FailureMessage = FailureMessageHelper.FromExpectedAndActual(typeof(TException), exception);
+                return Constraint.Create(exception is TException, FailureMessageHelper.FromExpectedAndActual(typeof(TException), exception));
             }
         }
     }

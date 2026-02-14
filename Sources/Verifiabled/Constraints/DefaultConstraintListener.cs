@@ -2,15 +2,12 @@
 {
     internal sealed class DefaultConstraintListener : IConstraintListener
     {
-        private List<IConstraint> Constraints { get; } = new();
+        private List<Constraint> Constraints { get; } = new();
 
-        public void Broadcast(IConstraint contraint)
+        public void Add(Constraint contraint)
             => Constraints.Add(contraint);
 
-        public IEnumerable<IConstraint> GetAllContraints()
+        public IEnumerable<Constraint> GetAllContraints()
             => Constraints;
-
-        public void Clear()
-            => Constraints.Clear();
     }
 }

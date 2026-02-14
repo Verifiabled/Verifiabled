@@ -7,10 +7,7 @@ namespace Verifiabled
         extension(Assert)
         {
             public static void Throws<TException>(Action act) where TException : Exception
-            {
-                var constraint = new ThrowsConstraint<TException>(act);
-                GlobalConstraintListenerManager.Broadcast(constraint);
-            }
+                => GlobalConstraintListenerManager.Add(ThrowsConstraint.Create<TException>(act));
         }
     }
 }

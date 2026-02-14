@@ -1,6 +1,5 @@
 ﻿using System.Numerics;
 using Verifiabled.Constraints;
-using Verifiabled.Constraints.NumericConstraints;
 
 namespace Verifiabled
 {
@@ -10,8 +9,9 @@ namespace Verifiabled
         {
             public static void AreEqual<T>(T expected, T actual, T error) where T : INumber<T>
             {
-                var constraint = new AreEqualNumericConstraint<T>(expected, actual, error);
-                GlobalConstraintListenerManager.Broadcast(constraint);
+                var absMeasuredError = T.Abs(expected > actual ? expected - actual : actual - expected);
+                var isFulfilled = absMeasuredError <= T.Abs(error);
+                GlobalConstraintListenerManager.Add(Constraint.Create(isFulfilled, FailureMessageHelper.FromExpectedAndActual(expected, actual)));
             }
         }
     }

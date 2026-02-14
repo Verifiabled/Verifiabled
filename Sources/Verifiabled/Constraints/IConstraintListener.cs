@@ -2,8 +2,7 @@
 {
     public interface IConstraintListener
     {
-        void Broadcast(IConstraint contraint);
-        IEnumerable<IConstraint> GetAllContraints();
-        void Clear();
+        void Add(Constraint contraint);
+        IEnumerable<Constraint> GetAllContraints();
     }
 }

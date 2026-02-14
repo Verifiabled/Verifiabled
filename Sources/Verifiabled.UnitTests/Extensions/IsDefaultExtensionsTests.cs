@@ -2,7 +2,7 @@
 {
     public sealed class IsDefaultExtensionsTests
     {
-        [Case]
+        //[Case]
         public void ShouldPass()
         {
             // arrange

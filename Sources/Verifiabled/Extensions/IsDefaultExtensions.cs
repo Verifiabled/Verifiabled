@@ -7,10 +7,7 @@ namespace Verifiabled
         extension(Assert)
         {
             public static void IsDefault<TActual>(TActual actual)
-            {
-                var constraint = new IsDefaultConstraint<TActual>(actual);
-                GlobalConstraintListenerManager.Broadcast(constraint);
-            }
+                => GlobalConstraintListenerManager.Add(Constraint.Create(actual?.Equals(default) ?? true, FailureMessageHelper.FromExpectedAndActual(default(TActual), actual)));
         }
     }
 }
