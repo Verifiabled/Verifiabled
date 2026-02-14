@@ -1,10 +1,13 @@
-﻿namespace Verifiabled.Exceptions
+﻿using System.Diagnostics;
+
+namespace Verifiabled.Exceptions
 {
     internal sealed class AssertException : Exception
     {
         internal AssertException(string message) : base(message)
         { }
 
+        [StackTraceHidden]
         internal static void ThrowIfUnfulfilled(bool condition, string? message)
         {
             if (!condition)
