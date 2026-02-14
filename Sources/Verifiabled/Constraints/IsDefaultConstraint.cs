@@ -2,10 +2,10 @@
 {
     internal sealed class IsDefaultConstraint<TActual> : ConstraintAbstract<TActual>
     {
-        public IsDefaultConstraint(TActual actual) : base(default(TActual), actual)
+        public IsDefaultConstraint(TActual actual) : base(default!, actual)
         { }
 
-        internal override void UpdateFulfillment()
+        protected override void UpdateFulfillment()
              => IsFulfilled = Actual == null || Actual.Equals(Expected);
     }
 }

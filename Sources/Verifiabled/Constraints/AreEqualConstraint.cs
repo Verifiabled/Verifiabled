@@ -5,7 +5,7 @@
         public AreEqualConstraint(T expected, T actual) : base(expected, actual)
         { }
 
-        internal override void UpdateFulfillment()
+        protected override void UpdateFulfillment()
             => IsFulfilled = Expected == null ? Actual == null : Expected.Equals(Actual);
     }
 }

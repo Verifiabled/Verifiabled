@@ -5,7 +5,7 @@
         public BooleanConstraint(bool expected, bool actual) : base(expected, actual)
         { }
 
-        internal override void UpdateFulfillment()
+        protected override void UpdateFulfillment()
             => IsFulfilled = Expected == Actual;
     }
 }

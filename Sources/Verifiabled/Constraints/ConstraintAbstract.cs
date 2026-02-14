@@ -1,10 +1,10 @@
 ﻿namespace Verifiabled.Constraints
 {
-    public abstract class ConstraintAbstract<T> : IConstraint
+    internal abstract class ConstraintAbstract<T> : IConstraint
     {
         public bool IsFulfilled { get; protected set; }
 
-        public string FailureMessage { get; }
+        public string? FailureMessage { get; }
 
         internal T Expected { get; }
 
@@ -15,10 +15,12 @@
             Expected = expected;
             Actual = actual;
 
-            FailureMessage = FailureMessageHelper.FromExpectedAndActual(expected, actual);
             UpdateFulfillment();
+
+            if (IsFulfilled)
+                FailureMessage = FailureMessageHelper.FromExpectedAndActual(expected, actual);
         }
 
-        internal abstract void UpdateFulfillment();
+        protected abstract void UpdateFulfillment();
     }
 }

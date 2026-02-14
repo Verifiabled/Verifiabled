@@ -2,7 +2,7 @@
 
 namespace Verifiabled.Constraints.NumericConstraints
 {
-    public sealed class AreEqualNumericConstraint<T> : ConstraintAbstract<T> where T : INumber<T>
+    internal sealed class AreEqualNumericConstraint<T> : ConstraintAbstract<T> where T : INumber<T>
     {
         internal T Error { get; set; }
 
@@ -12,7 +12,7 @@ namespace Verifiabled.Constraints.NumericConstraints
             UpdateFulfillment();
         }
 
-        internal override void UpdateFulfillment()
+        protected override void UpdateFulfillment()
         {
             var absMeasuredError = T.Abs(Expected > Actual ? Expected - Actual : Actual - Expected);
             IsFulfilled = absMeasuredError <= T.Abs(Error);

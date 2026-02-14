@@ -3,6 +3,6 @@
     public interface IConstraint
     {
         bool IsFulfilled { get; }
-        string FailureMessage { get; }
+        string? FailureMessage { get; }
     }
 }

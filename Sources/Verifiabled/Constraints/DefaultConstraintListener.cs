@@ -4,10 +4,13 @@
     {
         private List<IConstraint> Constraints { get; } = new();
 
-        public void Broadcast(IConstraint contraint) => Constraints.Add(contraint);
+        public void Broadcast(IConstraint contraint)
+            => Constraints.Add(contraint);
 
-        public IEnumerable<IConstraint> GetAllContraints() => Constraints;
+        public IEnumerable<IConstraint> GetAllContraints()
+            => Constraints;
 
-        public void Clear() => Constraints.Clear();
+        public void Clear()
+            => Constraints.Clear();
     }
 }

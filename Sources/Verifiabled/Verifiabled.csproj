@@ -5,6 +5,7 @@
     <IsPackable>true</IsPackable>
     <PackageId>$(AssemblyName)</PackageId>
     <Authors>Verifiabled</Authors>
+    <Nullable>enable</Nullable>
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/Verifiabled/Verifiabled</RepositoryUrl>
     <AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
@@ -22,6 +23,7 @@
 
   <ItemGroup>
     <InternalsVisibleTo Include="$(AssemblyName).UnitTests" />
+    <InternalsVisibleTo Include="$(AssemblyName).TestAdapter" />
   </ItemGroup>
   
 </Project>

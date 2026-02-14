@@ -2,17 +2,22 @@
 {
     public static class FailureMessageHelper
     {
-        public static string FromExpectedAndActual(object expected, object actual)
+        public static string FromExpectedAndActual(object? expected, object? actual)
         {
-            if (expected == null)
-                expected = "null";
+            expected ??= "null";
+            actual ??= "null";
 
-            if (actual == null)
-                actual = "null";
+            var builder = new StringBuilder();
+            builder.AppendLine($"Expected: {expected}");
+            builder.AppendLine($"Actual: {actual}");
+            return builder.ToString();
+        }
 
-            var builder = new StringBuilder("Assertion failed.\n");
-            builder.AppendLine($"Expected: {expected.ToString()}");
-            builder.AppendLine($"Actual: {actual.ToString()}");
+        public static string FromExpectedAndActual(Type expected, Exception actual)
+        {
+            var builder = new StringBuilder();
+            builder.AppendLine($"Expected: {expected.Name}");
+            builder.AppendLine($"Actual: {actual.GetType().Name}");
             return builder.ToString();
         }
     }
